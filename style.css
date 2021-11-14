@@ -200,13 +200,15 @@ ul .fecha-menu div {
 
 main {
    width:100vw;
-   height:100vh;
-   display:flex;
+   height:90vh;
+   position:absolute;
+   bottom:0px;
+   display:grid;
    justify-content:center;
    align-items:center;
    scrollbar-width:thin;
    scrollbar-color:#F2F2F2;
-   gap:2rem;
+   overflow-y:auto;
 }
 
 main::-webkit-scrollbar {
@@ -224,6 +226,26 @@ main::-webkit-scrollbar-thumb {
    border:3px solid #38040E;
 }
 
+main div {
+   margin-top:100px;
+   gap:1.3rem;
+   display:flex;
+   max-width:550px;
+   justify-content:space-between;
+   flex-wrap:wrap;
+   border-bottom:transparent;
+   border-top:2px solid #580000;
+   border-right:2px solid #580000;
+   border-left:transparent;
+   border-radius:2rem 3px 2rem 0rem;
+   box-shadow:2px 2px 3px rgba(0,0,0,.3);
+   padding-top:5px;
+}
+
+main div:nth-child(1) {
+   margin-top:50px;
+}
+
 main a {
    letter-spacing:3px;
    text-decoration:none;
@@ -232,50 +254,86 @@ main a {
    text-align:center;
    background:#640D14;
    border-radius:10rem;
-   transition:.6s;
+   transition:.3s;
 }
 
-main a:nth-child(1) {
+main a:hover {
+   transition:.3s;
+   transform:scale(1.1);
+}
+
+main div:nth-child(2) {
+   gap:.3rem;
+} 
+
+main div:nth-child(3) {
+   height:90px;
+}
+
+main div:nth-child(5) {
+   margin-bottom:100px;
+}
+
+main div a:nth-child(1) {
    padding:30px 25px 25px 15px; 
    clip-path:polygon(10% 18%, 77% 31%, 100% 65%, 2% 92%);
-   animation:move-links 10s linear infinite;
 }
 
-main a:nth-child(2) {
+main div a:nth-child(2) {
    clip-path:polygon(50% 26%, 100% 44%, 100% 91%, 55% 100%, 0 53%);
-   padding:30px 15px 15px 55px; 
-   animation:move-links 12s linear infinite;
+   padding:30px 15px 10px 55px; 
+   height:70px;
 }
 
-.quotes {
-   position:fixed;
-   width:200px;
-   height:30px;
-   background:red;
-   border-radius:3rem 3rem 3px 3px;
-   bottom:0;
-   margin:auto;
+main div a:nth-child(3) {
+   clip-path: polygon(46% 23%, 100% 13%, 81% 67%, 5% 73%, 5% 10%);
+   padding:25px;
 }
 
-@keyframes move-links {
+#about {
+   margin:auto auto 100px auto;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   width:100px;
+   height:20px;
+   border:transparent;
+   box-shadow:none;
+}
+
+#about span {
+   font-size:16px;
+   width:55px;
+   height:18px;
+   display:flex;
+   color:#F2F2F2;
+   border:transparent;
+   letter-spacing:2px;
+}
+
+.pisca-code {
+   animation:pisca-code 2.1s linear infinite;
+   border:none;
+   box-shadow:none;
+   width:10px;
+   height:10px;
+   border-radius:none;
+   position:absolute;
+   display:block;
+   margin-left:55px;
+}
+
+@keyframes pisca-code {
    0% {
-      transform:translateX(0) translateY(0);
-   }
-
-   25% {
-      transform:translateX(-5px) translateY(-5px);
+      opacity:0;
    }
 
    50% {
-      transform:translateX(10px) translateY(5px);
-   }
-
-   75% {
-      transform:translateX(-10px) translateY(10px);
+      opacity:1;
    }
 
    100% {
-      transform:translateX(-3px) translateY(3px);
+      opacity:0;
    }
 }
 
@@ -307,20 +365,29 @@ main a:nth-child(2) {
       font-size:14px;
    }
 
+   main div {
+      margin-top:80px;
+   }
+
    main a {
       font-size:13px;
    }
 
-   main a:nth-child(1) {
+   main div a:nth-child(1) {
       padding:30px 25px 25px 15px; 
    }
 
-   main a:nth-child(2) {
+   main div a:nth-child(2) {
       padding:30px 10px 15px 35px;
+      height:60px;
+   }
+
+   main div:nth-child(3) {
+      height:170px;
    }
 }
 
-@media (max-width:500px) {
+@media (max-width:550px) {
    ul {
       width:75vw;
    }
@@ -338,9 +405,29 @@ main a:nth-child(2) {
    ul .fecha-menu {
       margin-left:-115%;
    }
+
+   main div {
+      max-width:290px;
+      padding-right:10px;
+   }
+
+   main div:nth-child(3) a:nth-child(2) {
+      width:110px;
+      padding-bottom:45px;
+   }
+}
+
+@media (max-height:370px) {
+   main {
+      height:80vh;
+   }
 }
 
 @media (max-height:300px) {
+   main {
+      height:70vh;
+   }
+
    ul li {
       margin:2rem auto;
    }
