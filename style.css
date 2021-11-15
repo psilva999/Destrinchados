@@ -295,7 +295,7 @@ main div a:nth-child(3) {
    display:flex;
    justify-content:space-between;
    align-items:center;
-   width:100px;
+   width:70px;
    height:20px;
    border:transparent;
    box-shadow:none;
@@ -383,7 +383,11 @@ main div a:nth-child(3) {
    }
 
    main div:nth-child(3) {
-      height:170px;
+      height:90px;
+   }
+
+   main div:nth-child(3) a:nth-child(1), a:nth-child(3) {
+      height:70px;
    }
 }
 
@@ -407,8 +411,12 @@ main div a:nth-child(3) {
    }
 
    main div {
-      max-width:290px;
+      max-width:287px;
       padding-right:10px;
+   }
+
+   main div:nth-child(3) {
+      height:180px;
    }
 
    main div:nth-child(3) a:nth-child(2) {
